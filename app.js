@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("myInput").value = "";
 
     });
-
+    //
     // const editInput = document.querySelector('.name');
 
     // list.addEventListener('click', function(e) {
