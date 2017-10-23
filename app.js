@@ -1,9 +1,17 @@
+// basically every function in this small app begins by defining consts
+// then adding an evet to them. 
+// the app has simple functions including adding items, deleting items,
+// filtering (or searching) and hiding all of them.
+
+
 document.addEventListener('DOMContentLoaded', function() {
+    // selecting ul from the #todo-div and saving it to a const
     const list = document.querySelector('#todo-list ul');
 
     //delete todos
+    //adding eventlistener 'click' to the list
     list.addEventListener('click', function(e) {
-        if (e.target.className === 'delete' || e.target.className === 'fa-trash') {
+        if (e.target.className === 'delete') {
             const li = e.target.parentElement;
             list.removeChild(li);
         }
@@ -16,28 +24,38 @@ document.addEventListener('DOMContentLoaded', function() {
         const value = addForm.querySelector('input[type="text"]').value;
 
 
-        //create elements
+        //in order to add new items we need to create elements to the logic
         const li = document.createElement('li');
-        const bookName = document.createElement('span');
+        const todoName = document.createElement('span');
         const deleteBtn = document.createElement('span');
 
         //add content
         deleteBtn.innerHTML = "<i class='fa fa-trash'>";
         // deleteBtn.textContent = "delete";
-        bookName.textContent = value;
+        todoName.textContent = value;
 
         //add classes
-        bookName.classList.add('name');
+        todoName.classList.add('name');
         deleteBtn.classList.add('delete');
 
         //append to DOM
-        li.appendChild(bookName);
+        li.appendChild(todoName);
         li.appendChild(deleteBtn);
         list.appendChild(li);
 
         document.getElementById("myInput").value = "";
 
     });
+
+    // const editInput = document.querySelector('.name');
+
+    // list.addEventListener('click', function(e) {
+    //     if (e.target.className === 'name') {
+    //         editInput.innerText = editInput.value;
+    //     } else {
+    //         editInput.value = label.innerText;
+    //     }
+    // });
 
     // hide todos 
     const hideBox = document.querySelector('#hide');
@@ -49,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchBar = document.forms['search-todos'].querySelector('input');
     searchBar.addEventListener('keyup', (e) => {
         const term = e.target.value.toLowerCase();
-        const books = list.getElementsByTagName('li');
-        Array.from(books).forEach((book) => {
-            const title = book.firstElementChild.textContent;
-            title.toLowerCase().indexOf(e.target.value) != -1 ? book.style.display = "block" : book.style.display = "none";
+        const todoItems = list.getElementsByTagName('li');
+        Array.from(todoItems).forEach((item) => {
+            const title = item.firstElementChild.textContent;
+            title.toLowerCase().indexOf(e.target.value) != -1 ? item.style.display = "block" : item.style.display = "none";
         });
     });
 })
