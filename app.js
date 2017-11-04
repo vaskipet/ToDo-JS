@@ -23,44 +23,43 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault(); //so the page does not reload when clicked!
         const value = addForm.querySelector('input[type="text"]').value;
 
+        // addin some form validation so that the user enters at least two character to the list
+        if (value == null || value == '' || value.length < 2) {
+            alert('Please fill the form in order to add a todo!');
+            // document.getElementById('myInput').className += "green";
+        } else {
 
-        //in order to add new items we need to create elements to the logic
-        const li = document.createElement('li');
-        const todoName = document.createElement('span');
-        const deleteBtn = document.createElement('span');
 
-        //add content
-        deleteBtn.innerHTML = "<i class='fa fa-trash'>";
-        // deleteBtn.textContent = "delete";
-        todoName.textContent = value;
+            //in order to add new items we need to create elements to the logic
+            const li = document.createElement('li');
+            const todoName = document.createElement('span');
+            const deleteBtn = document.createElement('span');
 
-        //add classes
-        todoName.classList.add('name');
-        deleteBtn.classList.add('delete');
+            //add content
+            deleteBtn.innerHTML = "<i class='fa fa-trash'>";
+            // deleteBtn.textContent = "delete";
+            todoName.textContent = value;
 
-        //append to DOM
-        li.appendChild(todoName);
-        li.appendChild(deleteBtn);
-        list.appendChild(li);
+            //add classes
+            todoName.classList.add('name');
+            deleteBtn.classList.add('delete');
+            li.classList.add('list-group-item');
 
-        document.getElementById("myInput").value = "";
+            //append to DOM
+            li.appendChild(todoName);
+            li.appendChild(deleteBtn);
+            list.appendChild(li);
 
+            document.getElementById("myInput").value = "";
+            // document.getElementById("myInput").className -= "green";
+        }
     });
 
 
     list.addEventListener('dblclick', function() {
-        alert('test');
+        li.className += "line-through";
     });
-    //
-    // const editInput = document.querySelector('.name');
 
-    // list.addEventListener('click', function(e) {
-    //     if (e.target.className === 'name') {
-    //         editInput.innerText = editInput.value;
-    //     } else {
-    //         editInput.value = label.innerText;
-    //     }
-    // });
 
     // hide todos 
     const hideBox = document.querySelector('#hide');
@@ -74,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const term = e.target.value.toLowerCase();
         const todoItems = list.getElementsByTagName('li');
         Array.from(todoItems).forEach((item) => {
-            const title = item.firstElementChild.textContent;
-            title.toLowerCase().indexOf(e.target.value) != -1 ? item.style.display = "block" : item.style.display = "none";
+            const val = item.firstElementChild.textContent;
+            val.toLowerCase().indexOf(e.target.value) != -1 ? item.style.display = "block" : item.style.display = "none";
         });
     });
 })

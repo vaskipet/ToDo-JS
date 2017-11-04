@@ -9,6 +9,7 @@
     <title>JavaScript IE 1</title>
 
     <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet" />
 
     <!-- FONTS -->
@@ -19,50 +20,63 @@
 
     <!-- JAVASCRIPT -->
     <script src="app.js"></script>
+    <!-- <script src="script.js" defer></script> -->
 </head>
 
 <body>
     <div id="wrapper">
-        <header>
-            <div id="page-banner">
-                <h1 class="title">TO-DO LISTER</h1>
-                <p style="font-style:italic; font-size:10px;">Making the world a better place with lists...</p>
-                <form id="add-todo">
-                    <input type="text" placeholder="Add a thing to do..." id="myInput" />
-                    <button>Add</button>
-                    <input type="checkbox" id="hide" />
-                    <label for="hide" style="color:#444;">Hide all </label>
-                </form>
-
+        <header class="bg-dark text-white p-4 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title text-center">TO-DO LISTER</h1>
+                        <p style="font-style:italic; font-size:10px;" class="text-center">Making the world a better place with lists...</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="form-group">
+                            <form id="add-todo" class="form-inline">
+                                <input type="text" class="form-control " placeholder="Add a thing to do..." id="myInput" />
+                                <button class="btn btn-dark"><i class="fa fa-plus"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
-        <div id="todo-list">
-            <h4 class="title">Search for things at the bottom..</h4>
-            <ul>
-                <li>
-                    <span class="name">Enter things to do at the top!</span>
-                    <span class="delete"><i class="fa fa-trash"></i></span>
-                </li>
-                <li>
-                    <span class="name">You can delete things by hovering on the item...</span>
-                    <span class="delete"><i class="fa fa-trash"></i></span>
-                </li>
-                <li>
-                    <span class="name">...and then clicking on the thrash bin.</span>
-                    <span class="delete"><i class="fa fa-trash"></i></span>
-                </li>
-                <li>
-                    <span class="name">Filter your list with the searchbar.</span>
-                    <span class="delete"><i class="fa fa-trash"></i></span>
-                    <span class="edit"><i class="fa fa-pencil"></i></span>
-                </li>
-            </ul>
-        </div>
-        <div class="page-banner">
-            <form id="search-todos">
-                <input type="text" placeholder="Search todos..." />
-                <button><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
+        <div class="container">
+            <div id="main" class="card card-body">
+                <div id="todo-list">
+                    <h4 class="title">Search for things at the bottom..</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="name">Enter things to do at the top!</span>
+                            <span class="delete"><i class="fa fa-trash"></i></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="name">You can delete things by hovering on the item...</span>
+                            <span class="delete"><i class="fa fa-trash"></i></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="name">...and then clicking on the thrash bin.</span>
+                            <span class="delete"><i class="fa fa-trash"></i></span>
+                        </li class="list-group-item">
+                        <li class="list-group-item">
+                            <span class="name">Filter your list with the searchbar.</span>
+                            <span class="delete"><i class="fa fa-trash"></i></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-banner">
+                    <form id="search-todos" class="form-inline">
+                        <input type="text" class="form-control" placeholder="Search todos..." />
+                        <button class="btn btn-dark"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <input type="checkbox" id="hide" class="ml-5 mr-1">
+                        <label for="hide">Hide all </label>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
