@@ -46,6 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("myInput").value = "";
 
     });
+
+
+    list.addEventListener('dblclick', function() {
+        alert('test');
+    });
     //
     // const editInput = document.querySelector('.name');
 

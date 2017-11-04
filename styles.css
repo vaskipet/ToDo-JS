@@ -114,6 +114,32 @@ h4 {
     background: rgb(217, 83, 79);
 }
 
+.edit {
+    float: right !important;
+    background: rgb(66, 139, 202);
+    color: white;
+    text-align: center;
+    padding: 0 10px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    /* making the delete button be invisible at first */
+    width: 0;
+    opacity: 0;
+    margin: none;
+}
+
+#todo-list li:hover .edit {
+    width: 30px;
+    opacity: 1.0;
+    transition: 0.3s linear;
+}
+
+.edit:hover {
+    background: rgb(217, 83, 79);
+}
+
 #add-todo {
     width: 400px;
     margin: 0 auto;
