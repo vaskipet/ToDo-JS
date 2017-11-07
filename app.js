@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // building consts before adding functionalities
-    const list = document.querySelector('#todo-list ul');
+    const listItem = document.querySelector('#todo-list ul');
     const addForm = document.forms['add-todo'];
     const hideBox = document.querySelector('#hide');
     const searchBar = document.forms['search-todos'].querySelector('input');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //once user submits something, addTodo is fired
     addForm.addEventListener('submit', addTodo);
     //once user clicks trash-icon, deleTodo is fired
-    list.addEventListener('click', deleteTodos);
+    listItem.addEventListener('click', deleteTodos);
     //once user clicks checkbox to 'hide all', hideTodos is fired
     hideBox.addEventListener('change', hideTodo);
     //once user input something in the searchbar. filterTodos is fired
@@ -29,14 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // adding some form validation so that the user enters at least two character to the list
         if (value == null || value == '' || value.length < 2) {
             alert('Please fill the form in order to add a todo!');
-            // document.getElementById('myInput').style.border = "4px solid red";
-            const field = document.querySelector('#myInput');
+            var field = document.getElementById('myInput');
             field.setAttribute('class', 'warning');
         } else {
-            const field = document.querySelector('#myInput');
-            field.setAttribute('class', 'form-control');
-
             //in order to add new items we need to create elements it consists of
+            var field = document.getElementById('myInput');
+            field.setAttribute('class', 'form-control');
             const li = document.createElement('li');
             const todoName = document.createElement('span');
             const deleteBtn = document.createElement('span');
@@ -50,10 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
             deleteBtn.classList.add('delete');
             li.classList.add('list-group-item');
 
-            //append to DOM
+            //append the values to the Document Object Model
+            // to the created li-tag todoName is appended
             li.appendChild(todoName);
+            // to the created li-tag deleteBtn is appended
             li.appendChild(deleteBtn);
-            list.appendChild(li);
+            //the li is appeded to the list
+            listItem.appendChild(li);
 
             document.getElementById("myInput").value = "";
             // document.getElementById("myInput").className -= "green";
@@ -64,20 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function deleteTodos(e) {
         if (e.target.className === 'delete' || e.target.className === 'fa-trash') {
             const li = e.target.parentElement;
-            list.removeChild(li);
+            listItem.removeChild(li);
         }
     };
 
     //hiding todos
     function hideTodo() {
         //if the checkbox is checked then don´t diplay the list. else diplay as block-
-        hideBox.checked ? list.style.display = "none" : list.style.display = "block";
+        hideBox.checked ? listItem.style.display = "none" : listItem.style.display = "block";
     };
 
     // filter or search function 
     function filterTodos(e) {
         //grabbing the list of the todos
-        const todoItems = list.getElementsByTagName('li');
+        const todoItems = listItem.getElementsByTagName('li');
         //turn todoItems into array so we can use forEach to iterate through all todos
         Array.from(todoItems).forEach((item) => {
             const val = item.firstElementChild.textContent;
