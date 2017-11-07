@@ -29,8 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // adding some form validation so that the user enters at least two character to the list
         if (value == null || value == '' || value.length < 2) {
             alert('Please fill the form in order to add a todo!');
-            // document.getElementById('myInput').className += "green";
+            // document.getElementById('myInput').style.border = "4px solid red";
+            const field = document.querySelector('#myInput');
+            field.setAttribute('class', 'warning');
         } else {
+            const field = document.querySelector('#myInput');
+            field.setAttribute('class', 'form-control');
+
             //in order to add new items we need to create elements it consists of
             const li = document.createElement('li');
             const todoName = document.createElement('span');

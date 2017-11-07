@@ -66,3 +66,7 @@ body {
 .delete:hover {
     background: rgb(217, 83, 79);
 }
+
+.warning {
+    border: 2px solid red;
+}
