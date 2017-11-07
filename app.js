@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //deleting todos
     function deleteTodos(e) {
-        if (e.target.className === 'delete') {
+        if (e.target.className === 'delete' || e.target.className === 'fa-trash') {
             const li = e.target.parentElement;
             list.removeChild(li);
         }
