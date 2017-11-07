@@ -8,7 +8,7 @@
 
     <title>JavaScript IE 1</title>
 
-    <!-- CSS -->
+    <!-- CSS & BOOTSTRAP -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet" />
 
@@ -33,12 +33,12 @@
                         <p style="font-style:italic; font-size:10px;" class="text-center">Making the world a better place with lists...</p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="col-md-6 mx-auto">
                     <div class="container">
                         <div class="form-group">
                             <form id="add-todo" class="form-inline">
-                                <input type="text" class="form-control " placeholder="Add a thing to do..." id="myInput" />
-                                <button class="btn btn-dark"><i class="fa fa-plus"></i></button>
+                                <input type="text" class="form-control " placeholder="Add a thing to do..." id="myInput">
+                                <button class="btn btn-danger"><i class="fa fa-plus"></i></button>
                             </form>
                         </div>
                     </div>
@@ -66,12 +66,16 @@
                             <span class="name">Filter your list with the searchbar.</span>
                             <span class="delete"><i class="fa fa-trash"></i></span>
                         </li>
+                        <li class="list-group-item">
+                            <span class="name">And hide all from the checkbox below.</span>
+                            <span class="delete"><i class="fa fa-trash"></i></span>
+                        </li>
                     </ul>
                 </div>
-                <div class="page-banner">
+                <div class="page-bottom">
                     <form id="search-todos" class="form-inline">
                         <input type="text" class="form-control" placeholder="Search todos..." />
-                        <button class="btn btn-dark"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="btn btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
                         <input type="checkbox" id="hide" class="ml-5 mr-1">
                         <label for="hide">Hide all </label>
                     </form>
