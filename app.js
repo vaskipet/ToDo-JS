@@ -6,12 +6,12 @@
 // making sure that the app.js works
 document.addEventListener('DOMContentLoaded', function() {
 
-    // building global vars before adding functionalities
-    var listItem = document.querySelector('#todo-list ul');
-    var addForm = document.forms['add-todo'];
-    var hideBox = document.getElementById('hide');
-    var searchBar = document.forms['search-todos'].querySelector('input');
-    var field = document.getElementById('myInput');
+    // building global consts before adding functionalities
+    const listItem = document.querySelector('#todo-list ul');
+    const addForm = document.forms['add-todo'];
+    const hideBox = document.getElementById('hide');
+    const searchBar = document.forms['search-todos'].querySelector('input');
+    const field = document.getElementById('myInput');
 
     //once user submits something, addTodo is fired
     addForm.addEventListener('submit', addTodo);
@@ -25,19 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     //adding todos
     function addTodo(e) {
         e.preventDefault(); //so the page does not reload when clicked!
-        var value = addForm.querySelector('input[type="text"]').value;
+        const value = addForm.querySelector('input[type="text"]').value;
 
         // adding some form validation so that the user enters at least two character to the list
         if (value == null || value == '' || value.length < 3) {
             alert('Please fill the form in order to add a todo!');
             //adding a css-class to the input field
-            field.setAttribute('class', 'warning');
+            field.setAttribute('class', 'bg-danger');
         } else {
             //in order to add new items we need to create elements it consists of
             field.setAttribute('class', 'form-control');
-            var li = document.createElement('li');
-            var todoName = document.createElement('span');
-            var deleteBtn = document.createElement('span');
+            const li = document.createElement('li');
+            const todoName = document.createElement('span');
+            const deleteBtn = document.createElement('span');
 
             //add the delete icon and the value that was written by user
             deleteBtn.innerHTML = "<i class='fa fa-trash'>";
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //add classes to the todo
             // todoName.classList.add('name');
             deleteBtn.classList.add('delete');
-            li.classList.add('list-group-item');
+            li.className = 'list-group-item';
 
             //append the values to the Document Object Model
             // to the created li-tag todoName is appended
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             listItem.appendChild(li);
 
             //after input we want to clear the form
-            document.getElementById("myInput").value = "";
+            field.value= '';
         }
     };
 
@@ -86,4 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
             val.indexOf(e.target.value) != -1 ? item.style.display = "block" : item.style.display = "none";
         });
     }
+
+
+
+    
 });
