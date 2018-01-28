@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //deleting todos
     function deleteTodos(e) {
         if (e.target.className === 'delete' || e.target.className === 'fa-trash') {
-            var li = e.target.parentElement;
+            const li = e.target.parentElement;
             listItem.removeChild(li);
         }
     };
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // filter or search function 
     function filterTodos(e) {
         //grabbing the list of the todos
-        var todoItems = listItem.getElementsByTagName('li');
+        let todoItems = listItem.getElementsByTagName('li');
         //turn todoItems into array so we can use forEach to iterate through all todos.
         Array.from(todoItems).forEach((item) => {
             var val = item.firstElementChild.textContent;
